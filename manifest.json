@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+
+    "name": "NFT Advisor - Gas Estimator",
+    "description": "This extension takes the gas used on etherscan and sends it to contractgas.nftadvisor.com for calculation.",
+    "version": "1.0",
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "notifications"
+    ],
+    "externally_connectable": {
+        "matches": ["*://*.etherscan.io/tx/*"]
+    },
+    "content_scripts": [{
+        "matches": ["*://*.etherscan.io/tx/*"],
+        "js": ["content.js"]
+    }],
+    "background": {
+        "scripts": ["contractgas.js"],
+        "persistent": false
+    }
+}
